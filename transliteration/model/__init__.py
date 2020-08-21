@@ -1,0 +1,11 @@
+START_TOKEN = "!"
+END_TOKEN = "?"
+
+NUM_EXAMPLES = None
+TEST_SIZE = 0.2
+
+# Model parameters
+BATCH_SIZE = 64
+EMBEDDING_DIM = 256
+UNITS = 1024
+EPOCHS = 10

@@ -29,11 +29,8 @@ def data_ar2en_coling_2018(output_dir: Path, filename: str = None):
     df["arabic"] = df["arabic"].str.replace(" ", "")
     # filter row with a number in it
     df = df.loc[~df["arabic"].map(lambda x: any(map(str.isnumeric, x)))]
-    # filter row with less than a character
-    df = df.loc[df["arabic"].map(len) > 1]
-    df = df.loc[df["english"].map(len) > 1]
     # filter row with quote
-    df = df.loc[~df["arabic"].str.contains('"a')]
+    df = df.loc[~df["arabic"].str.contains('"')]
     df = df.loc[~df["english"].str.contains('"')]
     if filename is None:
         filename = "ar2en_coling_2018.csv"

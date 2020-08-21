@@ -1,21 +1,16 @@
 from setuptools import setup, find_packages
 
-# Read dependencies from requirements file
-with open("requirements.txt", "r") as requirements_file:
-    dependencies = [line.rstrip("\n") for line in requirements_file]
-
 setup(
-    name="names_translation",
-    description="Names translation",
-    # You can just specify the packages manually here if your project is
-    # simple. Or you can use find_packages().
+    name="names_transliteration",
+    description="Names transliteration",
     packages=find_packages(exclude=[]),
-    install_requires=dependencies,
+    install_requires=["tensorflow==2.1.0", "pandas==1.1.0"],
     scripts=[],
-    # Optional
     entry_points={
         "console_scripts": [
-            "names-translation-get-data=names_translation.get_data:main",
+            "names-transliteration-get-data=transliteration.get_data:main",
+            "names-transliteration-train=transliteration.train_nmt:main",
+            "names-transliteration-transliterate=transliteration.transliterate_name:main",
         ]
     },
 )

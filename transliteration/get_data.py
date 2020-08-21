@@ -2,8 +2,8 @@ from pathlib import Path
 from argparse import ArgumentParser
 import sys
 import pandas as pd
-from names_translation.collect import download
-from names_translation.collect.cleaning import clean_dataset
+from transliteration.collect import download
+from transliteration.collect.process import prepare_data
 
 
 def parse_args(args):
@@ -30,7 +30,7 @@ def run(raw_dir: Path, clean_dir: Path):
         ]
     )
 
-    df_arabic_english = clean_dataset(
+    df_arabic_english = prepare_data(
         df_arabic_english, clean_dir / "arabic_english.csv"
     )
 
