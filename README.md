@@ -1,7 +1,7 @@
 # Names transliteration
 
 In this repository you will find:
-- a dataset (and associated code to build it) containing 
+- a [dataset](https://raw.githubusercontent.com/thomas-chauvet/names_transliteration/master/data/clean/arabic_english.csv) (and associated code to build it) containing 
 names in arabic characters and associated names in latin 
 characters (english),
 - a (google colab) notebook to train a 
