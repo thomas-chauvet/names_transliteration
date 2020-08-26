@@ -56,3 +56,8 @@ names-transliteration-transliterate محمد‎ model/
 ## Python environment
 
 Please refer to the `environment.yml` file for conda environment.
+
+## ToDo
+
+- add pre-trained models and everything needed to run "predict" only (upload in Git LFS?).
+- add unit tests
