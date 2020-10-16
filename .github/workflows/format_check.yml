@@ -1,0 +1,14 @@
+name: Code Format Check
+
+on: [push, pull_request]
+
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+      - name: Black
+        uses: psf/black@stable  # already includes args "--check --diff"
