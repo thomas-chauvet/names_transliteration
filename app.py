@@ -15,7 +15,10 @@ from names_transliteration.model.save import (
     load_keras_tokenizer_json,
     load_model_metadata,
 )
-from names_transliteration.model.transliterate import transliterate, LettersNotInTokenizerException
+from names_transliteration.model.transliterate import (
+    transliterate,
+    LettersNotInTokenizerException,
+)
 
 logger = logging.getLogger(__name__)
 logger.setLevel("INFO")
@@ -92,7 +95,7 @@ def run_the_app():
 
     name_input = st.text_input(label="Enter a names in arabic characters")
     logger.info(f"name_input {name_input}")
-    name = name_input.strip('\u200e')
+    name = name_input.strip("\u200e")
     logger.info(f"name {name}")
     if len(name) > 0:
         try:
@@ -108,11 +111,11 @@ def run_the_app():
             st.text("Transliterated name is:")
             st.title(transliterated)
         except LettersNotInTokenizerException:
-            st.error("Some letters are not handled properly. Probably not arabic character.")
+            st.error(
+                "Some letters are not handled properly. Probably not arabic character."
+            )
         except Exception as e:
             logger.error(e)
-
-
 
 
 def main():

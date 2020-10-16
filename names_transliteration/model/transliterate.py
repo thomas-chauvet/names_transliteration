@@ -5,8 +5,10 @@ from keras_preprocessing.text import Tokenizer
 from names_transliteration.cleaning.arabic import clean_name
 from names_transliteration.model.nmt import Encoder, Decoder
 
+
 class LettersNotInTokenizerException(Exception):
     pass
+
 
 def check_letter_in_tokenizer(name: str, input_tokenizer: Tokenizer):
     letter_not_in_tokenizer = [
