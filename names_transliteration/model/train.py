@@ -4,9 +4,9 @@ from typing import Tuple
 
 import tensorflow as tf
 
-from transliteration.model import EPOCHS, BATCH_SIZE
-from transliteration.model.nmt import Encoder, Decoder
-from transliteration.model.nmt.loss import loss_function
+from names_transliteration.model import EPOCHS, BATCH_SIZE
+from names_transliteration.model.nmt import Encoder, Decoder
+from names_transliteration.model.nmt.loss import loss_function
 
 import logging
 

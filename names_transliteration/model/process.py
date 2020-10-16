@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 from pathlib import Path
 from typing import List, Tuple
-from transliteration.model import START_TOKEN, END_TOKEN
+from names_transliteration.model import START_TOKEN, END_TOKEN
 
 
 def tokenize(

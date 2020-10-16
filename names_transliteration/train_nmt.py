@@ -5,18 +5,21 @@ from pathlib import Path
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
-from transliteration import DATA_DIR, MODEL_DIR
-from transliteration.model import (
+from names_transliteration import DATA_DIR, MODEL_DIR
+from names_transliteration.model import (
     BATCH_SIZE,
     UNITS,
     EMBEDDING_DIM,
     TEST_SIZE,
     EPOCHS,
 )
-from transliteration.model.nmt import get_model
-from transliteration.model.process import load_dataset
-from transliteration.model.save import save_keras_tokenizer_json, save_model_metadata
-from transliteration.model.train import train
+from names_transliteration.model.nmt import get_model
+from names_transliteration.model.process import load_dataset
+from names_transliteration.model.save import (
+    save_keras_tokenizer_json,
+    save_model_metadata,
+)
+from names_transliteration.model.train import train
 
 import logging
 
@@ -134,7 +137,7 @@ def main():
     num_examples = args.num_examples
     epochs = args.epochs
     test_size = args.test_size
-    _ = run(
+    run(
         dataset_path,
         model_path,
         batch_size,

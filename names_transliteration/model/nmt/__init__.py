@@ -1,6 +1,6 @@
-from transliteration.model.nmt.attention import BahdanauAttention
-from transliteration.model.nmt.decoder import Decoder
-from transliteration.model.nmt.encoder import Encoder
+from names_transliteration.model.nmt.attention import BahdanauAttention
+from names_transliteration.model.nmt.decoder import Decoder
+from names_transliteration.model.nmt.encoder import Encoder
 
 
 def get_model(

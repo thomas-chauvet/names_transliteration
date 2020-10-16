@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from transliteration.model.nmt.attention import BahdanauAttention
+from names_transliteration.model.nmt.attention import BahdanauAttention
 
 
 class Decoder(tf.keras.Model):

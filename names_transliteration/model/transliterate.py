@@ -1,6 +1,20 @@
-import tensorflow as tf
+from typing import Dict, Any
 
-from transliteration.cleaning.arabic import clean_name
+import tensorflow as tf
+from keras_preprocessing.text import Tokenizer
+from names_transliteration.cleaning.arabic import clean_name
+from names_transliteration.model.nmt import Encoder, Decoder
+
+
+def check_letter_in_tokenizer(name: str, input_tokenizer: Tokenizer):
+    letter_not_in_tokenizer = [
+        l for l in name if l not in input_tokenizer.index_word.values()
+    ]
+    if len(letter_not_in_tokenizer) > 0:
+        raise Exception(
+            f"Some letters are not in tokenizer's characters ({', '.join(letter_not_in_tokenizer)})"
+        )
+    return True
 
 
 def evaluate(name, input_tokenizer, output_tokenizer, encoder, decoder, metadata):
@@ -40,9 +54,15 @@ def evaluate(name, input_tokenizer, output_tokenizer, encoder, decoder, metadata
 
 
 def transliterate(
-    name: str, input_tokenizer, output_tokenizer, encoder, decoder, metadata
+    name: str,
+    input_tokenizer: Tokenizer,
+    output_tokenizer: Tokenizer,
+    encoder: Encoder,
+    decoder: Decoder,
+    metadata: Dict[str, Any],
 ) -> str:
     names = clean_name(name)
+    _ = check_letter_in_tokenizer(name, input_tokenizer)
     result = " ".join(
         [
             evaluate(

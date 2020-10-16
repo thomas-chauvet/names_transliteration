@@ -11,7 +11,7 @@ of this model is to [transliterate](https://en.wikipedia.org/wiki/Transliteratio
 in arabic alphabet to latin alphabet. This task is also called 
 [romanization](https://en.wikipedia.org/wiki/Romanization).
 
-The model is trained thanks to google colab provided (free) GPU.
+The model is trained thanks to Google Colab providing (free) GPU.
 
 The model is based on Tensorflow tutorial 
 [NMT with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention).
@@ -56,6 +56,11 @@ names-transliteration-transliterate محمد‎ model/
 ## Python environment
 
 Please refer to the `environment.yml` file for conda environment.
+
+To create the environment with conda:
+```bash
+conda env create -f environment.yml
+```
 
 ## ToDo
 

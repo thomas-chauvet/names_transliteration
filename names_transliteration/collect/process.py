@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 import unicodedata
-from transliteration.cleaning import arabic
+from names_transliteration.cleaning import arabic
 
 
 def remove_accent(text):
