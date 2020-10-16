@@ -5,15 +5,16 @@ from keras_preprocessing.text import Tokenizer
 from names_transliteration.cleaning.arabic import clean_name
 from names_transliteration.model.nmt import Encoder, Decoder
 
+class LettersNotInTokenizerException(Exception):
+    pass
 
 def check_letter_in_tokenizer(name: str, input_tokenizer: Tokenizer):
     letter_not_in_tokenizer = [
         l for l in name if l not in input_tokenizer.index_word.values()
     ]
     if len(letter_not_in_tokenizer) > 0:
-        raise Exception(
-            f"Some letters are not in tokenizer's characters ({', '.join(letter_not_in_tokenizer)})"
-        )
+        error = f"Some letters are not in tokenizer's characters ({', '.join(letter_not_in_tokenizer)})"
+        raise LettersNotInTokenizerException(error)
     return True
 
 
