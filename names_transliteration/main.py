@@ -84,7 +84,13 @@ def get_data(raw_dir: Optional[Path] = None, clean_dir: Optional[Path] = None):
     typer.echo("Download 'coling 2018' dataset...")
     df_coling = download.data_ar2en_coling_2018(raw_dir)
 
-    df_arabic_english = pd.concat([df_google_transliteration, df_anetac, df_coling,])
+    df_arabic_english = pd.concat(
+        [
+            df_google_transliteration,
+            df_anetac,
+            df_coling,
+        ]
+    )
 
     typer.echo("Prepare concatenated dataset...")
     _ = prepare_data(df_arabic_english, clean_dir / "arabic_english.csv")

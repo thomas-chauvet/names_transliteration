@@ -52,7 +52,11 @@ def download_from_url(url: str, dst: Path) -> int:
     logger.info("Begin download and write file.")
 
     progress_bar = tqdm(
-        total=file_size, initial=0, unit="B", unit_scale=True, desc=url.split("/")[-1],
+        total=file_size,
+        initial=0,
+        unit="B",
+        unit_scale=True,
+        desc=url.split("/")[-1],
     )
 
     req = requests.get(url, headers=header, stream=True)
