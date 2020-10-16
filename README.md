@@ -1,7 +1,8 @@
 # Names transliteration
 
 In this repository you will find:
-- a [dataset](https://raw.githubusercontent.com/thomas-chauvet/names_transliteration/master/data/clean/arabic_english.csv) (and associated code to build it) containing 
+- a [dataset](https://raw.githubusercontent.com/thomas-chauvet/names_transliteration/master/data/clean/arabic_english.csv) 
+(and associated code to build it) containing 
 names in arabic characters and associated names in latin 
 characters (english),
 - a (google colab) notebook to train a 
@@ -28,7 +29,10 @@ Example: *PERSON; Adel; اديل*. For this file we'll filter on *PERSON* only,
 These 3 datasets will give us a clean dataset containing names in arabic and 
 corresponding names in latin alphabet (english).
 
-To get the final dataset you can run the script `get_data.py`.
+## Pre-trained models
+
+A pre-trained model (arabic to latin characters) is stored on 
+[dropbox](https://www.dropbox.com/s/leqc4k9c4hzfvi3/names-translation-model-2020-10-02.zip?dl=1).
 
 ## Library
 
@@ -37,21 +41,12 @@ Install library:
 python setup.py install
 ```
 
-Get data from github in raw folder:
-```bash
-names-transliteration-get-data data/raw data/clean
-```
+## CLI
 
-Train NMT model:
-```bash
-names-transliteration-train data/clean/arabic_english.csv model/ \
-    64 1024 256 500 2 0.2
-```
-
-Evaluate a name (for instance "Mohammed"):
-```bash
-names-transliteration-transliterate محمد‎ model/
-```
+- `get-data`: Get data from 3 sources to get a training dataset.
+- `get-pretrained-model`: Download pre-trained model for the task.
+- `train-nmt-model`: Train an NMT model.
+- `transliterate-name`: Transliterate a name in arabic in latin character.
 
 ## Python environment
 
@@ -64,5 +59,5 @@ conda env create -f environment.yml
 
 ## ToDo
 
-- add pre-trained models and everything needed to run "predict" only (upload in Git LFS?).
-- add unit tests
+- add unit tests (and associated GH action)
+- add streamlit app to use the model
