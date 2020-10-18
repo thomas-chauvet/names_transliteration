@@ -32,7 +32,7 @@ def run_the_app():
     # To make Streamlit fast, st.cache allows us to reuse computation across runs.
     # In this common pattern, we download data from an endpoint only once.
 
-    @st.cache(show_spinner=True)
+    @st.cache(show_spinner=False)
     def download_pre_trained_model():
         if not url_exists(PRE_TRAINED_MODEL_URL):
             raise Exception(
@@ -62,7 +62,7 @@ def run_the_app():
                 MODEL_PATH.as_posix(),
             )
 
-    @st.cache(show_spinner=True, allow_output_mutation=True)
+    @st.cache(show_spinner=False, allow_output_mutation=True)
     def load_model():
         logger.info("Load output_tokenizer...")
         output_tokenizer = load_keras_tokenizer_json(
@@ -90,8 +90,17 @@ def run_the_app():
         logger.info("Encoder/decoder loaded")
         return output_tokenizer, input_tokenizer, model_metadata, encoder, decoder
 
-    download_pre_trained_model()
-    output_tokenizer, input_tokenizer, model_metadata, encoder, decoder = load_model()
+    with st.spinner("Downloading pre-trained models..."):
+        download_pre_trained_model()
+
+    with st.spinner("Load model's weights..."):
+        (
+            output_tokenizer,
+            input_tokenizer,
+            model_metadata,
+            encoder,
+            decoder,
+        ) = load_model()
 
     name_input = st.text_input(label="Enter a names in arabic characters").replace(
         "\u200e", ""
@@ -99,14 +108,16 @@ def run_the_app():
     logger.info(f"name_input {name_input}")
     if len(name_input) > 0:
         try:
-            transliterated = transliterate(
-                name=name_input,
-                input_tokenizer=input_tokenizer,
-                output_tokenizer=output_tokenizer,
-                encoder=encoder,
-                decoder=decoder,
-                metadata=model_metadata,
-            )
+            with st.spinner("Transliterating..."):
+                transliterated = transliterate(
+                    name=name_input,
+                    input_tokenizer=input_tokenizer,
+                    output_tokenizer=output_tokenizer,
+                    encoder=encoder,
+                    decoder=decoder,
+                    metadata=model_metadata,
+                )
+            st.success("Done!")
             logger.info(f"transliterated {transliterated}")
             st.text("Transliterated name is:")
             st.title(transliterated)
