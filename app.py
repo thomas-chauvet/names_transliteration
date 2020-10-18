@@ -93,14 +93,14 @@ def run_the_app():
     download_pre_trained_model()
     output_tokenizer, input_tokenizer, model_metadata, encoder, decoder = load_model()
 
-    name_input = st.text_input(label="Enter a names in arabic characters")
+    name_input = st.text_input(label="Enter a names in arabic characters").replace(
+        "\u200e", ""
+    )
     logger.info(f"name_input {name_input}")
-    name = name_input.strip("\u200e")
-    logger.info(f"name {name}")
-    if len(name) > 0:
+    if len(name_input) > 0:
         try:
             transliterated = transliterate(
-                name=name,
+                name=name_input,
                 input_tokenizer=input_tokenizer,
                 output_tokenizer=output_tokenizer,
                 encoder=encoder,

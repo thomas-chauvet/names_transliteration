@@ -65,13 +65,12 @@ def transliterate(
     metadata: Dict[str, Any],
 ) -> str:
     names = clean_name(name)
-    _ = check_letter_in_tokenizer(name, input_tokenizer)
+    for n in names:
+        _ = check_letter_in_tokenizer(n, input_tokenizer)
     result = " ".join(
         [
-            evaluate(
-                name, input_tokenizer, output_tokenizer, encoder, decoder, metadata
-            )
-            for name in names
+            evaluate(n, input_tokenizer, output_tokenizer, encoder, decoder, metadata)
+            for n in names
         ]
     )
     return result

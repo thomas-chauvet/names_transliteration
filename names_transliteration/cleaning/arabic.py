@@ -52,4 +52,4 @@ def clean_name(text: str, start_token: str = "!", end_token: str = "?") -> List[
     text = remove_diacritics(text)
     text = normalize_arabic(text)
     text = remove_problematic_unicode(text)
-    return [start_token + e + end_token for e in text.split(" ")]
+    return [start_token + e.strip() + end_token for e in text.split(" ")]
