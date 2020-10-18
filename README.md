@@ -34,6 +34,18 @@ corresponding names in latin alphabet (english).
 A pre-trained model (arabic to latin characters) is stored on 
 [dropbox](https://www.dropbox.com/s/leqc4k9c4hzfvi3/names-translation-model-2020-10-02.zip?dl=1).
 
+## Colab notebook
+
+A jupyter notebook is provided to train the model used for transliteration.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thomas-chauvet/names_transliteration/blob/master/arabic_to_english_names_transliteration_with_nmt_and_attention.ipynb)
+
+## Web application - Streamlit
+
+A streamlit is provided. You can find a deployed version [here](https://share.streamlit.io/thomas-chauvet/names_transliteration/app.py).
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/thomas-chauvet/names_transliteration/app.py)
+
 ## Library
 
 Install library:
