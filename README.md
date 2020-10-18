@@ -60,4 +60,3 @@ conda env create -f environment.yml
 ## ToDo
 
 - add unit tests (and associated GH action)
-- add streamlit app to use the model
