@@ -7,9 +7,12 @@ setup(
     packages=find_packages(exclude=[]),
     python_requires=">=3.5, <4",
     install_requires=[
+        "keras-applications==1.0.8",
+        "keras-preprocessing==1.1.0",
         "tensorflow==2.1.0",
         "pandas==1.1.0",
         "scikit-learn==0.23.2",
+        "streamlit==0.69.1",
         "tqdm==4.50.0",
         "typer==0.3.1",
     ],
