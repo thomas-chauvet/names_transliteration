@@ -32,7 +32,7 @@ def test_remove_diacritics():
 
 
 def test_clean_name():
-    assert clean_name("إِعْجَام") == ['!اعجام?']
+    assert clean_name("إِعْجَام") == ["!اعجام?"]
     assert clean_name("تَشْكِيل") == ["!تشكيل?"]
     assert clean_name("حَرَكَات") == ["!حركات?"]
     assert clean_name("حَرَكَة") == ["!حركه?"]
