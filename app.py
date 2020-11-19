@@ -131,6 +131,30 @@ def run_the_app():
 
 def main():
     st.title("Romanization: Transliteration from arabic to latin characters")
+    st.sidebar.title("About")
+    st.sidebar.markdown(
+        """
+    **Notes**: Only arabic characters can be used with the app. Other characters
+    will raise an error.
+    """
+    )
+    with (Path(__file__).parent / "README.md").open(encoding="utf-8") as f:
+        about_md = f.read()
+    st.sidebar.markdown(about_md.split("## Web application - Streamlit")[0])
+    st.sidebar.markdown(
+        """
+    
+    
+    [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+    
+    [![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://colab.research.google.com/github/thomas-chauvet/names_transliteration/blob/master/arabic_to_english_names_transliteration_with_nmt_and_attention.ipynb)
+    
+    [![GitHub](https://img.shields.io/badge/github-%23100000.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/thomas-chauvet/)
+    
+    [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/ChauvetThomas.svg?style=social&label=Follow%20%40ChauvetThomas)](https://twitter.com/ChauvetThomas)
+    [![Linkedin](https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thomaschauvet/)
+    """
+    )
     run_the_app()
 
 

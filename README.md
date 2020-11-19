@@ -2,7 +2,7 @@
 
 # Names transliteration
 
-In this repository you will find:
+In this [repository](https://github.com/thomas-chauvet/names_transliteration) you will find:
 - a [dataset](https://raw.githubusercontent.com/thomas-chauvet/names_transliteration/master/data/clean/arabic_english.csv) 
 (and associated code to build it) containing 
 names in arabic characters and associated names in latin 
@@ -37,6 +37,8 @@ A pre-trained model (arabic to latin characters) is stored on
 [dropbox](https://www.dropbox.com/s/leqc4k9c4hzfvi3/names-translation-model-2020-10-02.zip?dl=1).
 
 ## Colab notebook
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thomas-chauvet/names_transliteration/blob/master/arabic_to_english_names_transliteration_with_nmt_and_attention.ipynb)
 
 A jupyter notebook is provided to train the model used for transliteration.
 
